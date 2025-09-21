@@ -1,0 +1,86 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: #eee;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 70px; /* retraída */
+  height: 100%;
+  background: #1a1a1a;
+  overflow-x: hidden;
+  transition: width 0.3s;
+  padding-top: 20px;
+}
+
+/* Sidebar expandida */
+.sidebar.expanded {
+  width: 220px;
+}
+
+/* Botão toggle */
+.toggle-btn {
+  background: none;
+  border: none;
+  color: #0ff;
+  font-size: 24px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+/* Lista de links */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.sidebar ul li {
+  margin: 20px 0;
+}
+
+.sidebar ul li a {
+  color: #0ff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  transition: background 0.2s;
+}
+
+.sidebar ul li a:hover {
+  background: #333;
+  border-radius: 5px;
+}
+
+.sidebar ul li i {
+  min-width: 30px;
+  text-align: center;
+  font-size: 18px;
+}
+
+/* Esconde o texto quando retraída */
+.sidebar ul li span {
+  display: none;
+}
+
+.sidebar.expanded ul li span {
+  display: inline;
+  margin-left: 10px;
+}
+
+/* Conteúdo principal */
+.content {
+  margin-left: 70px;
+  padding: 20px;
+  transition: margin-left 0.3s;
+}
+
+.sidebar.expanded ~ .content {
+  margin-left: 220px;
+}
