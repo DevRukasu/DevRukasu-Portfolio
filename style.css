@@ -1,3 +1,4 @@
+* { box-sizing: border-box; }
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -10,77 +11,98 @@ body {
   position: fixed;
   left: 0;
   top: 0;
-  width: 70px; /* retraída */
+  width: 70px;         /* retraída */
   height: 100%;
   background: #1a1a1a;
-  overflow-x: hidden;
-  transition: width 0.3s;
-  padding-top: 20px;
+  transition: width 0.28s ease;
+  padding-top: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
-/* Sidebar expandida */
+/* Expandida */
 .sidebar.expanded {
   width: 220px;
 }
 
-/* Botão toggle */
+/* botão toggle */
 .toggle-btn {
   background: none;
   border: none;
   color: #0ff;
-  font-size: 24px;
-  margin: 10px;
+  font-size: 20px;
+  padding: 10px;
   cursor: pointer;
+  align-self: flex-start;
 }
 
-/* Lista de links */
+/* Lista */
 .sidebar ul {
   list-style: none;
   padding: 0;
-  margin-top: 20px;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* ícones centralizados horizontalmente */
 }
 
 .sidebar ul li {
-  margin: 20px 0;
+  margin: 12px 0;
+  width: 100%;
 }
 
+/* Ícones + texto */
 .sidebar ul li a {
   color: #0ff;
   text-decoration: none;
   display: flex;
   align-items: center;
-  padding: 10px;
-  transition: background 0.2s;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background 0.15s;
 }
 
-.sidebar ul li a:hover {
-  background: #333;
-  border-radius: 5px;
-}
-
+/* Ícone fixo no centro */
 .sidebar ul li i {
-  min-width: 30px;
-  text-align: center;
-  font-size: 18px;
+  font-size: 20px;
+  width: 40px;            /* largura fixa pro ícone */
+  text-align: center;     /* centraliza dentro desse espaço */
 }
 
-/* Esconde o texto quando retraída */
+/* Texto escondido retraída */
 .sidebar ul li span {
   display: none;
+  font-size: 15px;
+  white-space: nowrap;
 }
 
+/* Texto visível expandida */
 .sidebar.expanded ul li span {
   display: inline;
-  margin-left: 10px;
 }
 
-/* Conteúdo principal */
+/* Hover */
+.sidebar ul li a:hover {
+  background: #333;
+}
+
+/* conteúdo principal deslocado */
 .content {
   margin-left: 70px;
-  padding: 20px;
-  transition: margin-left 0.3s;
+  padding: 28px;
+  transition: margin-left 0.28s ease;
 }
 
 .sidebar.expanded ~ .content {
   margin-left: 220px;
+}
+
+
+/* Responsivo: em telas pequenas, inicia retraído e fica sobre o conteúdo */
+@media (max-width: 600px) {
+  .sidebar { width: 56px; }
+  .content { margin-left: 56px; }
+  .sidebar.expanded { position: fixed; z-index: 1000; }
 }

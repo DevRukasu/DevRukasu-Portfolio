@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Portfólio 3D</title>
-  <link rel="stylesheet" href="style.css">
 
-  <!-- Ícones do Font Awesome -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <!-- Font Awesome via CDN (confiável) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+
+  <!-- Seu CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- Sidebar -->
   <div class="sidebar" id="sidebar">
-    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+    <!-- botão com ícone (mais fácil de ver) -->
+    <button class="toggle-btn" onclick="toggleSidebar()" aria-label="Abrir/fechar menu">
+      <i class="fas fa-bars"></i>
+    </button>
+
     <ul>
       <li><a href="#sobre"><i class="fas fa-user"></i><span>Sobre</span></a></li>
       <li><a href="#trabalhos"><i class="fas fa-cube"></i><span>Trabalhos</span></a></li>
       <li><a href="#contato"><i class="fas fa-envelope"></i><span>Contato</span></a></li>
+      <li><a href="https://github.com" target="_blank" rel="noopener"><i class="fab fa-github"></i><span>GitHub</span></a></li>
     </ul>
   </div>
 
