@@ -11,7 +11,7 @@ body {
   position: fixed;
   left: 0;
   top: 0;
-  width: 70px;         /* retraída */
+  width: 70px;
   height: 100%;
   background: #1a1a1a;
   transition: width 0.28s ease;
@@ -19,7 +19,6 @@ body {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
 }
 
 /* Expandida */
@@ -27,68 +26,139 @@ body {
   width: 220px;
 }
 
-/* botão toggle */
+/* Botão toggle */
 .toggle-btn {
   background: none;
   border: none;
-  color: #0ff;
+  color: #ea5927;
   font-size: 20px;
   padding: 10px;
   cursor: pointer;
-  align-self: flex-start;
+  border-radius: 6px;
+  margin: 0 8px 20px 8px;
+  transition: background 0.15s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar.expanded .toggle-btn {
+  justify-content: flex-start;
+  padding-left: 12px;
+}
+
+.toggle-btn:hover {
+  background: #333;
 }
 
 /* Lista */
 .sidebar ul {
   list-style: none;
   padding: 0;
-  margin: 20px 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;   /* ícones centralizados horizontalmente */
 }
 
 .sidebar ul li {
-  margin: 12px 0;
+  margin: 4px 0;
   width: 100%;
 }
 
-/* Ícones + texto */
+/* Links */
 .sidebar ul li a {
-  color: #0ff;
+  color: #666;
   text-decoration: none;
   display: flex;
   align-items: center;
-  padding: 8px 12px;
+  padding: 12px;
   border-radius: 6px;
-  transition: background 0.15s;
+  transition: all 0.3s ease;
+  margin: 0 8px;
+  justify-content: center;
+  position: relative;
 }
 
-/* Ícone fixo no centro */
+.sidebar.expanded ul li a {
+  justify-content: flex-start;
+}
+
+/* Ícones */
 .sidebar ul li i {
   font-size: 20px;
-  width: 40px;            /* largura fixa pro ícone */
-  text-align: center;     /* centraliza dentro desse espaço */
+  width: 24px;
+  text-align: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
 }
 
-/* Texto escondido retraída */
+/* Imagem usada no lugar dos ícones */
+.icon-img {
+  width: 20px;        
+  height: 20px;
+  object-fit: contain;
+  flex-shrink: 0;     
+  margin-right: 4px;  
+}
+
+/* Texto - escondido quando fechada */
 .sidebar ul li span {
   display: none;
   font-size: 15px;
   white-space: nowrap;
+  margin-left: 12px;
+  transition: all 0.3s ease;
 }
 
-/* Texto visível expandida */
+/* Texto visível quando expandida */
 .sidebar.expanded ul li span {
   display: inline;
 }
 
-/* Hover */
+
+
+
+
+/* Hover - ícones ficam laranja */
 .sidebar ul li a:hover {
-  background: #333;
+  background: rgba(234, 89, 39, 0.1);
+  color: #ea5927;
 }
 
-/* conteúdo principal deslocado */
+.sidebar ul li a:hover i {
+  color: #ea5927;
+  transform: scale(1.1);
+}
+
+/* Estado ativo - para a página atual */
+.sidebar ul li a.active {
+  color: #ea5927;
+  background: rgba(234, 89, 39, 0.15);
+}
+
+.sidebar ul li a.active i {
+  color: #ea5927;
+}
+
+/* Efeito de borda lateral quando ativo */
+.sidebar ul li a.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: #ea5927;
+  border-radius: 0 3px 3px 0;
+}
+
+
+
+
+
+
+
+/* Conteúdo principal */
 .content {
   margin-left: 70px;
   padding: 28px;
@@ -100,7 +170,42 @@ body {
 }
 
 
-/* Responsivo: em telas pequenas, inicia retraído e fica sobre o conteúdo */
+
+
+
+
+
+/* Imagem icone inferior */
+
+.sidebar-footer {
+  margin-top: auto;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar-image {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 6px;
+  transition: width 0.28s ease, height 0.28s ease;
+}
+
+.sidebar.expanded .sidebar-image {
+  width: 60px;
+  height: 60px;
+}
+
+.sidebar.expanded .sidebar-footer {
+  justify-content: flex-start;
+}
+
+
+
+
+
+/* Responsivo */
 @media (max-width: 600px) {
   .sidebar { width: 56px; }
   .content { margin-left: 56px; }
