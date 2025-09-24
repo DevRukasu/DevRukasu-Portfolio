@@ -73,7 +73,7 @@ body {
   align-items: center;
   padding: 12px;
   border-radius: 6px;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease;  
   margin: 0 8px;
   justify-content: center;
   position: relative;
@@ -83,23 +83,50 @@ body {
   justify-content: flex-start;
 }
 
-/* Ícones */
-.sidebar ul li i {
-  font-size: 20px;
+
+
+
+
+
+
+
+
+
+
+
+/* Ícones em SVG */
+.icon-svg {
   width: 24px;
-  text-align: center;
+  height: 24px;
+  margin-right: 0;  /* Sem margem quando fechada */
   flex-shrink: 0;
-  transition: all 0.3s ease;
+  fill: currentColor;
+  transition: transform 0.3s ease, color 0.3s ease;
+  color: #666;
 }
 
-/* Imagem usada no lugar dos ícones */
-.icon-img {
-  width: 20px;        
-  height: 20px;
-  object-fit: contain;
-  flex-shrink: 0;     
-  margin-right: 4px;  
+/* Margem apenas quando expandida */
+.sidebar.expanded ul li a .icon-svg {
+  margin-right: 12px;
 }
+
+/* Hover/ativo laranja */
+.sidebar ul li a:hover .icon-svg,
+.sidebar ul li a.active .icon-svg {
+  color: #ea5927;
+  transform: scale(1.1);
+}
+
+.icon-svg path {
+  fill: currentColor;
+}
+
+
+
+
+
+
+
 
 /* Texto - escondido quando fechada */
 .sidebar ul li span {
@@ -125,19 +152,10 @@ body {
   color: #ea5927;
 }
 
-.sidebar ul li a:hover i {
-  color: #ea5927;
-  transform: scale(1.1);
-}
-
 /* Estado ativo - para a página atual */
 .sidebar ul li a.active {
   color: #ea5927;
   background: rgba(234, 89, 39, 0.15);
-}
-
-.sidebar ul li a.active i {
-  color: #ea5927;
 }
 
 /* Efeito de borda lateral quando ativo */
