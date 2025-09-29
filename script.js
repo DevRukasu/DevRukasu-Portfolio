@@ -33,3 +33,42 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
+
+
+
+// ===============================
+// PARTÍCULAS ANIMADAS NO BACKGROUND
+// ===============================
+
+function createParticles() {
+  const particlesContainer = document.getElementById('particles-bg');
+  if (!particlesContainer) return;
+
+  const numberOfParticles = 60;
+
+  for (let i = 0; i < numberOfParticles; i++) {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    
+    // Posição aleatória
+    particle.style.left = Math.random() * 100 + '%';
+    particle.style.top = Math.random() * 100 + '%';
+    
+    // Delay aleatório na animação
+    particle.style.animationDelay = Math.random() * 8 + 's';
+    
+    // Duração aleatória
+    particle.style.animationDuration = (Math.random() * 4 + 6) + 's';
+    
+    // Tamanho aleatório
+    const size = Math.random() * 2 + 2;
+    particle.style.width = size + 'px';
+    particle.style.height = size + 'px';
+    
+    particlesContainer.appendChild(particle);
+  }
+}
+
+// Inicializar partículas quando a página carregar
+document.addEventListener('DOMContentLoaded', createParticles);
