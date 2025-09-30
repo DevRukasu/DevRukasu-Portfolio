@@ -520,7 +520,7 @@ body {
 
 /* Hero About */
 .about-hero {
-  min-height: 80vh;
+  margin-bottom: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -589,6 +589,7 @@ body {
 /* Info Cards */
 .about-info {
   padding: 40px 20px;
+  margin-top: 60px;
   margin-bottom: 40px;
 }
 
@@ -855,5 +856,184 @@ body {
   .btn-cta-primary,
   .btn-cta-secondary {
     width: 100%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===============================
+   CONTACT PAGE STYLES
+   =============================== */
+
+/* Contact Hero */
+.contact-hero {
+  text-align: center;
+  padding: 80px 20px 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-title {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.contact-subtitle {
+  font-size: 1.3rem;
+  color: #aaa;
+  font-weight: 300;
+}
+
+/* Contact Content */
+.contact-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-grid {
+  display: flex;
+  justify-content: center;
+}
+
+
+.contact-social {
+  max-width: 500px;
+  width: 100%;
+}
+
+
+/* Social Links Section */
+.contact-form-container h2 {
+  font-size: 2rem;
+  color: #ea5927;
+  margin-bottom: 30px;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: rgba(26, 26, 26, 0.8);
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.social-link:hover {
+  transform: translateX(10px);
+  border-color: #ea5927;
+  background: rgba(26, 26, 26, 0.95);
+  box-shadow: 0 5px 20px rgba(234, 89, 39, 0.2);
+}
+
+.social-icon {
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  background: linear-gradient(135deg, #ea5927, #ff8c42);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover .social-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.social-icon svg {
+  width: 24px;
+  height: 24px;
+  color: white;
+}
+
+.social-info h3 {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.social-info p {
+  color: #aaa;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Responsive Contact */
+@media (max-width: 968px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .contact-title {
+    font-size: 3rem;
+  }
+
+  .contact-social h2,
+  .contact-form-container h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-hero {
+    padding: 60px 20px 30px;
+  }
+
+  .contact-title {
+    font-size: 2.5rem;
+  }
+
+  .contact-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .contact-form-container {
+    padding: 25px;
+  }
+
+  .social-link {
+    padding: 15px;
+  }
+
+  .social-icon {
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+  }
+
+  .social-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .social-info h3 {
+    font-size: 1rem;
+  }
+
+  .social-info p {
+    font-size: 0.85rem;
   }
 }
